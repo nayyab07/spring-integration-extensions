@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2013 the original author or authors.
+ * Copyright 2002-2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,25 +15,22 @@
  */
 package org.springframework.integration.aws.ses.config.xml;
 
-
-import org.springframework.integration.aws.config.xml.AbstractAWSOutboundChannelAdapterParser;
-import org.springframework.integration.aws.ses.AmazonSESMessageHandler;
-import org.springframework.integration.core.MessageHandler;
+import org.springframework.integration.config.xml.AbstractIntegrationNamespaceHandler;
 
 /**
- * parse the &lt;ses-outbound-channel-adapter/&gt; of the "int-aws" namespace
+ * The namepsace handler for "aws-ses" namespace
  *
  * @author Amol Nayak
  *
- * @since 0.5
+ * @since 1.0
  *
  */
-public class AmazonSESOutboundAdapterParser extends
-		AbstractAWSOutboundChannelAdapterParser {
+public class AmazonSESNamespaceHandler extends
+		AbstractIntegrationNamespaceHandler {
 
 
-	@Override
-	public Class<? extends MessageHandler> getMessageHandlerImplementation() {
-		return AmazonSESMessageHandler.class;
+	public void init() {
+		this.registerBeanDefinitionParser("outbound-channel-adapter", new AmazonSESOutboundAdapterParser());
 	}
+
 }

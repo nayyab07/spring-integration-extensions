@@ -56,7 +56,7 @@ public abstract class AbstractAWSClientFactoryTests<T extends AmazonWebServiceCl
 
 
 	/**
-	 * Gets the endpoint for the service in US-EAST-1 region
+	 * Gets the endpoint for the service in US-WEST-1 region
 	 * @return
 	 */
 	protected abstract String getEUWest1Endpoint();

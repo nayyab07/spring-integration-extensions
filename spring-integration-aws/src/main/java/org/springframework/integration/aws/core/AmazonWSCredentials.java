@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2013 the original author or authors.
+ * Copyright 2002-2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,33 +16,25 @@
 package org.springframework.integration.aws.core;
 
 /**
- * Thrown when AWS Credentials provided by the user are incomplete or invalid
+ * The common interfaces for all implementations of Amazon WS Credentials
  *
  * @author Amol Nayak
  *
- * @since 0.5
+ * @since 1.0
  *
  */
-public class InvalidAWSCredentialsException extends RuntimeException {
+public interface AmazonWSCredentials {
 
 	/**
-	 *
+	 * Get the Access key to the Amazon WS account
+	 * @return
 	 */
-	private static final long serialVersionUID = 1L;
+	public String getAccessKey();
 
-	public InvalidAWSCredentialsException() {
-		super();
-	}
+	/**
+	 * Get the Secret key to the Amazon WS account
+	 * @return
+	 */
+	public String getSecretKey();
 
-	public InvalidAWSCredentialsException(String message, Throwable cause) {
-		super(message, cause);
-	}
-
-	public InvalidAWSCredentialsException(String message) {
-		super(message);
-	}
-
-	public InvalidAWSCredentialsException(Throwable cause) {
-		super(cause);
-	}
 }

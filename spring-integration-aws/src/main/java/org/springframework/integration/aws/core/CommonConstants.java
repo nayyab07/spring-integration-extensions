@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2013 the original author or authors.
+ * Copyright 2002-2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,33 +16,16 @@
 package org.springframework.integration.aws.core;
 
 /**
- * Thrown when AWS Credentials provided by the user are incomplete or invalid
- *
+ * Common constants that would be used in the Project
  * @author Amol Nayak
  *
- * @since 0.5
+ * @since 1.0
  *
  */
-public class InvalidAWSCredentialsException extends RuntimeException {
+public interface CommonConstants {
 
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 1L;
+	public static final String ACCESS_KEY = "accessKey";
+	public static final String SECRET_KEY = "secretKey";
+	public static final String PROPERTIES_FILE = "propertiesFile";
 
-	public InvalidAWSCredentialsException() {
-		super();
-	}
-
-	public InvalidAWSCredentialsException(String message, Throwable cause) {
-		super(message, cause);
-	}
-
-	public InvalidAWSCredentialsException(String message) {
-		super(message);
-	}
-
-	public InvalidAWSCredentialsException(Throwable cause) {
-		super(cause);
-	}
 }

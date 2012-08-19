@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2013 the original author or authors.
+ * Copyright 2002-2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,34 +15,25 @@
  */
 package org.springframework.integration.aws.core;
 
+import com.amazonaws.AmazonWebServiceClient;
+
 /**
- * Thrown when AWS Credentials provided by the user are incomplete or invalid
+ * The factory interface that would be used to get the implementation of the appropriate
+ * instance of {@link AmazonWebServiceClient}
  *
  * @author Amol Nayak
  *
- * @since 0.5
+ * @since 1.0
  *
  */
-public class InvalidAWSCredentialsException extends RuntimeException {
+public interface AmazonWSClientFactory<T extends AmazonWebServiceClient> {
 
 	/**
+	 * Returns the instance of the {@link AmazonWebServiceClient} with the apropriate endpoint value
+	 * set based on the provided url value
 	 *
+	 * @param url The url of the service
+	 * @return The appropriate {@link AmazonWebServiceClient} for the provided endpoint URL
 	 */
-	private static final long serialVersionUID = 1L;
-
-	public InvalidAWSCredentialsException() {
-		super();
-	}
-
-	public InvalidAWSCredentialsException(String message, Throwable cause) {
-		super(message, cause);
-	}
-
-	public InvalidAWSCredentialsException(String message) {
-		super(message);
-	}
-
-	public InvalidAWSCredentialsException(Throwable cause) {
-		super(cause);
-	}
+	T getClient(String url);
 }
